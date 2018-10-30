@@ -204,8 +204,10 @@ population* new_generation(population* x)
 	int index = x->size - x->size / 3;
 	int i, j;
 	int n = 0;
+
 	for (i = index; i < x->size; i++)
 		free(x->solutions[i].array);
+
 	for (i = index; i < x->size; i++)
 	{
 		x->solutions[i] = crossing(x->solutions[rand() % index], x->solutions[rand() % index]);
@@ -216,9 +218,11 @@ population* new_generation(population* x)
 		for (j = 0; j < N; j++)
 			if (x->solutions[0].array[j] == x->solutions[(int)(x->size*0.5)].array[j])
 				n++;
+
 		if (n == N)
 		{
 			index = x->size / 10;
+
 			for (i = index; i < x->size; i++)
 			{
 				free(x->solutions[i].array);

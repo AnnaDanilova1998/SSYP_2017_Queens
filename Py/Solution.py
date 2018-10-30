@@ -76,5 +76,5 @@ class Solution:
 
     def mutation(self):
         for k in range(2):
-            i, j = random.randint(self.size)
+            i, j = random.randint(0, self.size - 1), random.randint(0, self.size - 1)
             self.genotype[i], self.genotype[j] = self.genotype[j], self.genotype[i]
